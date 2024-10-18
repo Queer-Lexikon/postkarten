@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yay, Postkarten!</title>
+    <link rel="stylesheet" type="text/css" href="reset.css" />
+    <link rel="stylesheet" type="text/css" href="generic.css" />
+  </head>
+  <body>
+    <div id="top" class="page" role="document">
+      <main role="main">
+        <section id="forms">
+          <header>
+            <h1>Die Postkartenaktion</h1>
+          </header>
+          <section>
+            <p>
+              Hallo, wir sind das Queer Lexikon und wir bieten seit über 10
+              Jahren online Informations- und Unterstützungs&shy;angebote zu
+              sexueller, geschlechtlicher und romantischer Vielfalt für das
+              ganze deutsch&shy;sprachige Europa. Unsere Arbeit ist als
+              gemeinnützig anerkannt und fast vollständig durch Spenden
+              finanziert.
+            </p>
+            <p>
+              Um unserer Arbeit eine Art Grundfinanzierung zu geben, haben wir
+              Förder&shy;mitgliedschaften ein&shy;geführt: Fördermitglieder
+              spenden regelmäßig einen selbst festgelegten Betrag und können an
+              unseren Mitgliederversammlungen teilnehmen. Zusätzlich gibts
+              monatlich einen News&shy;letter mit Berichten zu unserer aktuellen
+              Arbeit.
+            </p>
+            <p>
+              Und für die ersten 100 Fördermitgliedschaften über 2 Euro im Monat
+              (oder 24 Euro im Jahr) verschicken wir als Dankeschön eine
+              hand&shy;geschriebene Postkarte. Und wenn du auch eine möchtest,
+              füll einfach das Formular hier aus und wir kümmern uns um den
+              Rest.
+            </p>
+            <p>
+              Von unseren 100 Postkarten sind aktuell schon
+              <span id="count">0</span> vergeben.
+            </p>
+          </section>
+          <form>
+            <fieldset>
+              <legend>1. Eckdaten</legend>
+              <p>
+                <label for="accountname"
+                  >Name (wie wir dich nennen sollen)</label
+                >
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder="Alex Einhorn"
+                  required
+                />
+              </p>
+
+              <p>
+                <label for="email">Deine Mailadresse</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="text"
+                  placeholder=""
+                  required
+                />
+              </p>
+
+              <p id="interval">
+                Intervall<br />
+                <label for="month"
+                  ><input
+                    id="month"
+                    name="interval"
+                    type="radio"
+                    value="month"
+                    checked
+                  />
+                  monatlich</label
+                >
+
+                <label for="year"
+                  ><input
+                    id="year"
+                    name="interval"
+                    type="radio"
+                    class="radio"
+                    value="year"
+                  />
+                  jährlich</label
+                >
+              </p>
+              <p id="monthly">
+                Monatlicher Beitrag: <br />
+                <span id="monthButtons">
+                  <button id="two" data-amount="2">2 €</button>
+                  <button id="five" data-amount="5">5 €</button>
+                  <button id="ten" data-amount="10">10 €</button>
+                  <button id="twentyfive" data-amount="25">25 €</button>
+                </span>
+                <br /><br />
+                <label for="monthlyamount">Oder individuell festlegen</label>
+                <input
+                  id="monthlyamount"
+                  name="monthlyamount"
+                  type="number"
+                  value="2"
+                  min="2"
+                  step="0.01"
+                  size="4"
+                />
+              </p>
+              <p id="yearly" class="hidden">
+                Jährlicher Beitrag: <br />
+                <span id="yearButtons">
+                  <button id="twentyfour" data-amount="24">24 €</button>
+                  <button id="thirty" data-amount="30">30 €</button>
+                  <button id="fifty" data-amount="50">50 €</button>
+                  <button id="seventyfive" data-amount="75">75 €</button>
+                </span>
+                <br /><br />
+                <label for="yearlyamount">Oder individuell festlegen</label>
+                <input
+                  id="yearlyamount"
+                  name="yearlyamount"
+                  type="number"
+                  value="24"
+                  min="24"
+                  step="0.01"
+                  size="4"
+                />
+              </p>
+            </fieldset>
+
+            <fieldset id="forms__select">
+              <legend>2. Bankdaten</legend>
+              <p>
+                <em>Wir ziehen deine Beiträge bequem per Bankeinzug ein.</em>
+              </p>
+              <p>
+                <label for="accountname"
+                  >Name (wie bei der Bank hinterlegt)</label
+                >
+                <input
+                  id="accountname"
+                  name="accountname"
+                  type="text"
+                  placeholder="Alex Einhorn"
+                  required
+                />
+              </p>
+
+              <p>
+                <label for="iban">IBAN</label>
+                <input
+                  id="iban"
+                  name="iban"
+                  type="text"
+                  placeholder="XX11 2222 3333 4444 5555 66"
+                  required
+                  size="25"
+                />
+              </p>
+            </fieldset>
+
+            <fieldset>
+              <legend>3. Anschrift</legend>
+              <p>
+                <em
+                  >Dass deine Postkarte den Weg zu dir findet, brauchen wir
+                  deine Adresse.</em
+                ><br />
+                Keine Sorge, wir nutzen sie sonst für nichts und geben sie auch
+                nicht weiter.
+              </p>
+              <p>
+                <label for="postname">Name (wie auf dem Briefkasten)</label>
+                <input
+                  id="postname"
+                  name="postname"
+                  type="text"
+                  placeholder="Alex Einhorn"
+                  required
+                />
+              </p>
+
+              <p>
+                <label for="linetwo"
+                  >Zweite Adresszeile (im Zweifel steht hier nichts)</label
+                >
+                <input
+                  id="linetwo"
+                  name="linetwo"
+                  type="text"
+                  placeholder="c/o Büro Einhorn"
+                />
+              </p>
+
+              <p>
+                <label for="street">Straße und Hausnummer</label>
+                <input
+                  id="street"
+                  name="street"
+                  type="text"
+                  placeholder="Regenbogenwiese 11"
+                />
+              </p>
+
+              <p>
+                <label for="zip">Deine Postleitzahl</label>
+                <input
+                  id="zip"
+                  name="zip"
+                  type="text"
+                  placeholder="12345"
+                  required
+                  size="7"
+                />
+              </p>
+
+              <p>
+                <label for="city">Deine Stadt</label>
+                <input
+                  id="city"
+                  name="city"
+                  type="text"
+                  placeholder="Einhornhausen"
+                />
+              </p>
+
+              <p>
+                <label for="country"
+                  >Land (falls du nicht in Deutschland lebst)</label
+                >
+                <input
+                  id="country"
+                  name="country"
+                  type="text"
+                  placeholder="Queeremark"
+                />
+              </p>
+            </fieldset>
+
+            <fieldset>
+              <legend>4. Fast geschafft!</legend>
+              <p>
+                <input
+                  id="newsletter"
+                  name="newsletter"
+                  type="checkbox"
+                  required
+                />
+                <label for="newsletter"
+                  >Möchtest du unseren Newsletter monatlich per Mail
+                  bekommen?</label
+                >
+              </p>
+
+              <p>
+                <input id="sepa" name="sepa" type="checkbox" required />
+                <label for="sepa"
+                  >Bist du mit der Zahlung per Bankeinzug einverstanden?</label
+                >
+              </p>
+              <p>
+                <em
+                  >Mit dem Abschicken gehst du verbindlich eine
+                  Fördermitgliedschaft ein. Bitte überprüfe nochmal, dass alles
+                  stimmt.</em
+                >
+              </p>
+              <input type="submit" id="submit" value="Fördermitglied werden" />
+            </fieldset>
+          </form>
+        </section>
+
+        <section>
+          <header>
+            <h2>Das "Kleingedruckte"</h2>
+          </header>
+          <p>
+            Falls du uns bereits regelmäßig unterstützt, ist die Aktion auch ein
+            guter Zeitpunkt, um zu einer Fördermitgliedschaft zu wechseln. Du
+            bekommst auf jeden Fall eine Postkarte und wir freuen uns über mehr
+            Anteil von deiner Unterstützung - bei jedem anderen Weg für eine
+            Dauerspende fallen für uns zur Annahme Gebühren an. So kommt das
+            Maximum deiner Unterstützung bei uns an.
+          </p>
+          <p>
+            Falls du bereits Fördermitglied bist und du auch eine Postkarte
+            möchtest, brauchst du nichts weiter tun, wir melden uns bald bei
+            dir!
+          </p>
+          <p>
+            Als Fördermitglied unterstützt du das Queer Lexikon regelmäßig
+            finanziell, bekommst, wenn du möchtest einen Newsletter, wo wir von
+            unserer Arbeit berichten und wirst auch zu unseren
+            Mitgliederversammlungen eingeladen. Verpflichtet bist du zu nichts.
+          </p>
+          <p>
+            Wir verwenden deine Adresse ausschließlich für den Versand der
+            Postkarte. Die weiteren Daten verarbeiten wir zur Abwicklung deiner
+            Fördermitgliedschaft, entsprechend der
+            <a href="https://queer-lexikon.net/dokumente-stellungnahmen/"
+              >Ordnung für Fördermitgliedschaften</a
+            >
+            und unserer
+            <a href="https://queer-lexikon.net/datenschutz/"
+              >Datenschutzbestimmungen.</a
+            >
+          </p>
+        </section>
+      </main>
+
+      <footer>
+        Ein Aktion vom
+        <a href="https://queer-lexikon.net/impressum/">Queer Lexikon e.V.</a>.
+      </footer>
+    </div>
+    <script>
+      addEventListener("DOMContentLoaded", (event) => {
+        setCurrent();
+      });
+
+      const intervalRadios = document.getElementById("interval");
+      intervalRadios.addEventListener("change", (event) => {
+        const yearElements = document.getElementById("yearly");
+        const monthElements = document.getElementById("monthly");
+        yearElements.classList.toggle("hidden");
+        monthElements.classList.toggle("hidden");
+      });
+
+      const monthlyamount = document.getElementById("monthlyamount");
+      const yearlyamount = document.getElementById("yearlyamount");
+
+      const monthButtons = document.getElementById("monthButtons");
+      monthButtons.addEventListener("click", (event) => {
+        event.preventDefault();
+        const amount = event.target.dataset.amount;
+        monthlyamount.value = amount;
+        yearlyamount.value = amount * 12;
+      });
+
+      const yearButtons = document.getElementById("yearButtons");
+      yearButtons.addEventListener("click", (event) => {
+        event.preventDefault();
+        const amount = event.target.dataset.amount;
+        yearlyamount.value = amount;
+        const monthTemp = amount / 12;
+        monthlyamount.value = monthTemp.toFixed(2);
+      });
+
+      monthlyamount.addEventListener("change", (event) => {
+        yearlyamount.value = monthlyamount.value * 12;
+      });
+
+      yearlyamount.addEventListener("change", (event) => {
+        const monthTemp = yearlyamount.value / 12;
+        monthlyamount.value = monthTemp.toFixed(2);
+      });
+
+      const formElement = document.querySelector("form");
+      formElement.addEventListener("submit", (event) => {
+        event.preventDefault();
+        fd = new FormData(formElement);
+        submitData(fd, event);
+      });
+
+      async function submitData(fd, event) {
+        payload = {
+          name: fd.get("name"),
+          email: fd.get("email"),
+          newsletter: fd.get("newsletter") == "on",
+          membershipData: {
+            yearly_amount: fd.get("yearlyamount") * 100,
+            paid_monthly: fd.get("interval") == "month",
+          },
+          account: {
+            name: fd.get("accountname"),
+            iban: fd.get("iban"),
+            agreement: fd.get("sepa") == "on",
+          },
+          address: {
+            name: fd.get("postname"),
+            second_line: fd.get("linetwo"),
+            street_line: fd.get("street"),
+            city_line: fd.get("city"),
+            zip_code: fd.get("zip"),
+            country: fd.get("country"),
+          },
+        };
+        console.log(JSON.stringify(payload));
+        const response = await fetch("/generate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        const responseData = await response.json();
+        if (responseData.success) {
+          setCurrent();
+        } else {
+          console.log(responseData);
+        }
+      }
+
+      async function setCurrent() {
+        const progressURL = "/progress";
+        const progressResponse = await fetch(progressURL);
+        const progressData = await progressResponse.json();
+        const el = document.getElementById("count");
+        el.innerText = progressData.current;
+      }
+    </script>
+  </body>
+</html>
