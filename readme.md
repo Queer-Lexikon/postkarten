@@ -19,6 +19,7 @@ Das sollte prinzipiell etwa so gehen
 - venv generieren (wir wollen Python 3.11 oder neuer)
 - `pip install -r requirements.txt`
 - schnell im WordPress checken, wie viele Fördermitgliedschaften schon da sind und gegebenenfalls die `+34` in der `get_current()` anpassen
+- `uploads`-Ordner anlegen, weil git keine leeren Ordner mag. 
 - mit `fastapi run main.py --port ABC` mit einem freien Port für ABC starten und das Reverse-Proxy dran kleben
 
 optional: in der Theorie kann, was im `static/` liegt, auch am ASGI vorbei geserved werden.
