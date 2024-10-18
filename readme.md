@@ -24,6 +24,8 @@ Das sollte prinzipiell etwa so gehen
 
 optional: in der Theorie kann, was im `static/` liegt, auch am ASGI vorbei geserved werden.
 
+**Bonus**: um Designdinge zu machen, reichts auch völlig, sich die Dateien aus dem `static`-Ordner zu schnappen, da ist alles dran, außer die aktuelle Anzahl Postkarten und es passiert halt nix, wenn man auf abschicken klickt.
+
 ## Customize
 
 Das leider bisschen murky, aber:
