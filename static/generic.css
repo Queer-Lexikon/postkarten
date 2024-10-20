@@ -519,6 +519,11 @@ textarea[disabled]::placeholder {
 }
 
 
+.highlight {
+    color: var(--colorscheme-accent-one);
+    font-weight: bold;
+}
+
 
 
 
