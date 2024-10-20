@@ -37,9 +37,4 @@ Das leider bisschen murky, aber:
 
 - vor dem abschicken die formData checken, dass alles notwendig da ist (zeile 373)
   - gegebenenfalls nicht stimmige Dinge highlighten und hinscrollen
-- nach dem abschicken die Antwort anschauen (Zeile 406)
-  - die sollten immer erfolgreich sein, wenn es clientseitig gepasst hat, außer
-  - wenns den Eintrag schon gibt
-  - oder wenn die IBAN nicht valide ist
-  - auch das aufzeigen
-- einge schöne Erfolgsmeldung fehlt noch (ungefähr Zeile 404)
+
