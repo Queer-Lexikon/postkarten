@@ -410,6 +410,8 @@
         } else {
           if (responseData.data.type == "value_error") {
             window.alert(responseData.detail.msg);
+          } else if (responseData.already_exists) {
+            window.alert("Du scheinst schon Fördermitglied zu sein, melde dich gerne per Mail an vorstand@queer-lexikon.net, wenn etwas unklar ist.");
           }
           console.log(responseData);
         }
