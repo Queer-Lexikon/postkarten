@@ -252,7 +252,6 @@
                   id="newsletter"
                   name="newsletter"
                   type="checkbox"
-                  required
                 />
                 <label for="newsletter"
                   >Möchtest du unseren Newsletter monatlich per Mail
@@ -401,8 +400,17 @@
         });
         const responseData = await response.json();
         if (responseData.success) {
+          const form = document.querySelector("form");
+          form.insertAdjacentHTML(
+            "beforebegin",
+            "<p class='highlight'>Danke, dass du unsere Arbeit ermöglichst, wir bringen deine Postkarte auf den Weg!</p>"
+          );
+          form.remove();
           setCurrent();
         } else {
+          if (responseData.data.type == "value_error") {
+            window.alert(responseData.detail.msg);
+          }
           console.log(responseData);
         }
       }
