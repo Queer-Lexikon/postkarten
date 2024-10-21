@@ -55,9 +55,10 @@ class Info(BaseModel):
     def create_filename(self):
         return f"{self.name}_{self.account.iban}.json"
 
-    @model_validator(mode="before")
+    @model_validator(mode="after")
     def check_unique(self) -> Self:
-        if self.create_filename() in os.listdir("./uploads"):
+        a = f"{self.name}_{self.account.iban}.json"
+        if f"{a}" in os.listdir("./uploads"):
             raise ValueError(
                 "Du scheinst schon Fördermitglied zu sein. Falls du Fragen hast, wende dich gerne an vorstand@queer-lexikon.net"
             )
@@ -85,6 +86,8 @@ async def progress():
 async def generate(info: Info):
     possible_filename = info.create_filename()
     if possible_filename not in os.listdir("./uploads"):
+        print(possible_filename)
+        print(os.listdir("./uploads"))
         serializable_info = jsonable_encoder(info)
         with open(f"./uploads/{possible_filename}", "x") as fp:
             json.dump(serializable_info, fp, indent=4)
