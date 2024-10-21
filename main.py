@@ -1,5 +1,6 @@
 import os
 import json
+import datetime
 
 
 from fastapi import FastAPI
@@ -51,6 +52,7 @@ class Info(BaseModel):
     membershipData: MembershipData
     account: Account
     address: Address
+    timestamp: str = str(datetime.datetime.now())
 
     def create_filename(self):
         return f"{self.name}_{self.account.iban}.json"
