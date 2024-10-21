@@ -248,11 +248,7 @@
             <fieldset>
               <legend>4. Fast geschafft!</legend>
               <p>
-                <input
-                  id="newsletter"
-                  name="newsletter"
-                  type="checkbox"
-                />
+                <input id="newsletter" name="newsletter" type="checkbox" />
                 <label for="newsletter"
                   >Möchtest du unseren Newsletter monatlich per Mail
                   bekommen?</label
@@ -408,13 +404,9 @@
           form.remove();
           setCurrent();
         } else {
-          if (responseData.data.type == "value_error") {
-            window.alert(responseData.detail.msg);
-          } else if (responseData.already_exists) {
-            window.alert("Du scheinst schon Fördermitglied zu sein, melde dich gerne per Mail an vorstand@queer-lexikon.net, wenn etwas unklar ist.");
-          }
-          console.log(responseData);
+          window.alert(responseData.detail[0].msg.slice(13));
         }
+        console.log(responseData);
       }
 
       async function setCurrent() {
