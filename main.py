@@ -6,8 +6,9 @@ from fastapi import FastAPI
 from fastapi.encoders import jsonable_encoder
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import RedirectResponse
-from pydantic import BaseModel, field_validator, Field, EmailStr
+from pydantic import BaseModel, field_validator, model_validator, Field, EmailStr
 from schwifty import IBAN
+from typing_extensions import Self
 
 app = FastAPI()
 
@@ -53,6 +54,14 @@ class Info(BaseModel):
 
     def create_filename(self):
         return f"{self.name}_{self.account.iban}.json"
+
+    @model_validator(mode="before")
+    def check_unique(self) -> Self:
+        if self.create_filename() in os.listdir("./uploads"):
+            raise ValueError(
+                "Du scheinst schon Fördermitglied zu sein. Falls du Fragen hast, wende dich gerne an vorstand@queer-lexikon.net"
+            )
+        return self
 
 
 goal: int = 100
